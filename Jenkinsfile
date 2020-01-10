@@ -14,13 +14,13 @@ pipeline {
             }
         }
         stage('Deploy') {
-		    echo 'Deploying..'
             when {
               expression {
                 currentBuild.result == null || currentBuild.result == 'SUCCESS' 
               }
             }
             steps {
+			    echo 'Deploying..'
                 bat 'make publish'
             }
         }
