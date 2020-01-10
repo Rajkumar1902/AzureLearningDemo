@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn --version'
+                bat 'mvn --version'
             }
         }
         stage('Test') {
@@ -19,7 +19,7 @@ pipeline {
               }
             }
             steps {
-                sh 'make publish'
+                bat 'make publish'
             }
         }
     }
