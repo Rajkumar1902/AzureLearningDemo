@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'mvn --version'
+			    echo 'Builing..'
+                bat 'mvnw package'
             }
         }
         stage('Test') {
@@ -13,6 +14,7 @@ pipeline {
             }
         }
         stage('Deploy') {
+		    echo 'Deploying..'
             when {
               expression {
                 currentBuild.result == null || currentBuild.result == 'SUCCESS' 
